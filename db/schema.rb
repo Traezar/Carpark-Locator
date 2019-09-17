@@ -10,6 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2019_09_16_052013) do
+
+  create_table "carparks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "car_park_no"
+    t.text "address"
+    t.string "latitude"
+    t.string "longitude"
+    t.string "total_lots"
+    t.string "available_lots"
+  end
 
 end
