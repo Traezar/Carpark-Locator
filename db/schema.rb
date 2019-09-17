@@ -15,10 +15,11 @@ ActiveRecord::Schema.define(version: 2019_09_16_052013) do
   create_table "carparks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "car_park_no"
     t.text "address"
-    t.string "latitude"
-    t.string "longitude"
-    t.string "total_lots"
-    t.string "available_lots"
+    t.float "latitude"
+    t.float "longitude"
+    t.integer "total_lots"
+    t.integer "available_lots"
+    t.float "haversine_value"
   end
 
 end

@@ -3,10 +3,11 @@ class CreateCarparks < ActiveRecord::Migration[6.0]
     create_table :carparks do |t|
       t.string :car_park_no , primary: true
       t.text :address
-      t.string :latitude
-      t.string :longitude
-      t.string :total_lots
-      t.string :available_lots
+      t.decimal :precision=>64, :scale=>12  :latitude
+      t.decimal :precision=>64, :scale=>12  :longitude
+      t.integer :total_lots
+      t.integer :available_lots
+      t.decimal :precision=>64, :scale=>12  :haversine_value
     end
   end
 end

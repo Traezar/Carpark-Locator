@@ -37,10 +37,11 @@ def convert_svy21_to_latlong(carparks)
         carpark = Carpark.create(
             :car_park_no => spot[0],
             :address => spot[1],
-            :latitude => latLong["latitude"],
-            :longitude => latLong["longitude"],
+            :latitude => latLong["latitude"].to_f,
+            :longitude => latLong["longitude"].to_f,
             :total_lots => 0,
-            :available_lots => 0)
+            :available_lots => 0,
+            :haversine_value => 0)
     end
     puts "total of #{count} entries added"
 end
