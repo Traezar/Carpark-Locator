@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  resources :carpark
+  get "/carparks/nearest", to: "carpark#show"
 end
