@@ -1,10 +1,7 @@
 require 'faraday'
+require 'svy21'
 require_relative '../../app/models/carpark.rb'
-def construct_request_for_carpark_info(params)
-    x_svy21 = params[2]
-    y_svy21= params[3]
-    request = "https://developers.onemap.sg/commonapi/convert/3414to4326?X=#{x_svy21}&Y=#{y_svy21}"
-end
+
 
 def get_lot_info
     request = Faraday.new
@@ -14,12 +11,13 @@ end
 
 def connect_to_database
     unless ActiveRecord::Base.connected?
-        puts "establishing connection to database"
+        puts "Establishing connection to database"
         ActiveRecord::Base.establish_connection(
             :adapter => "mysql2",
             :username => "root",
             :password => "",
             :database => "carpark_dev")
+         puts "Connection Established"
     else
         puts "Database is already connected"
     end
@@ -31,17 +29,15 @@ def convert_svy21_to_latlong(carparks)
     connect_to_database()
     carparks.each do |spot|
         count += 1
-        request = construct_request_for_carpark_info(spot)
-        response = conn.get(request)
-        latLong= JSON.parse(response.body.chomp)
+        latLong = SVY21.svy21_to_lat_lon(spot[2].to_f,spot[3].to_f)
         carpark = Carpark.create(
             :car_park_no => spot[0],
             :address => spot[1],
-            :latitude => latLong["latitude"].to_f,
-            :longitude => latLong["longitude"].to_f,
+            :latitude => latLong[0],
+            :longitude => latLong[1],
             :total_lots => 0,
             :available_lots => 0,
             :haversine_value => 0)
     end
-    puts "total of #{count} entries added"
+    puts "Total of #{count} entries added to the database"
 end

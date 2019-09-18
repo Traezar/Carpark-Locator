@@ -21,6 +21,7 @@ gem 'puma', '~> 3.11'
 gem 'faraday', '~> 0.9.2'
 gem 'haversine'
 gem 'will_paginate'
+gem "svy21", "~> 1.0.1"
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
