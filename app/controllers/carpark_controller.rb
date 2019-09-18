@@ -21,11 +21,13 @@ def grab_all_available_carparks
         p carpark.haversine_value
     end
 end
+
 def check_carpark_params
     unless params[:latitude] && params[:longitude]
         return head(:bad_request)
     end
 end
+
 def save_params
         @request_location=[params[:longitude].to_f,params[:latitude].to_f]
         @page = params[:page]
