@@ -1,7 +1,5 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require_relative '../lib/carpark/http_helpers.rb'
+
+carparks = CSV.foreach(Rails.root.join('lib/hdb-carpark-information.csv'), headers:true)
+convert_svy21_to_latlong(carparks)
+puts "Database is now populated with carparks!"
