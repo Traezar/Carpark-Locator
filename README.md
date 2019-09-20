@@ -11,17 +11,21 @@ Compatibility
 ##### Mysql-server (8.X.X) : `mysql --version`.
 > Gemlock wil prevent a bundle install if the Bundler version is older
 ---
-# Mysql
+# MySQL
 ###### Set the following Environment variables by entering these commands:
-`export "MYSQL_USER="{user}"`
-`export "MYSQL_PASS="{password}"`
+```
+export "MYSQL_USER="{user}"
+export "MYSQL_PASS="{password}"
+```
 ##### Console into MySQL and change, By entering the following:
-`
+```
 mysql -u root -p
-`
-When prompted for password hit Return
- When in the MySQL console enter the following.
-`GRANT ALL PRIVILEGES ON *.* TO '{user}'@'localhost' IDENTIFIED BY {password}` 
+```
+###### When prompted for password hit Return
+###### In the console,
+```
+GRANT ALL PRIVILEGES ON *.* TO '{user}'@'localhost' IDENTIFIED BY {password}
+```
 &nbsp;
 # Rails Application
 
