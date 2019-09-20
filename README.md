@@ -24,7 +24,8 @@ mysql -u root -p
 ###### When prompted for password hit Return
 ###### In the console,
 ```
-GRANT ALL PRIVILEGES ON *.* TO '{user}'@'localhost' IDENTIFIED BY {password}
+CREATE USER '{user}'@'localhost' IDENTIFIED BY '{password}';
+GRANT ALL PRIVILEGES ON carpark_dev.* TO '{user}'@'localhost'
 ```
 &nbsp;
 # Rails Application
