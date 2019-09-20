@@ -1,24 +1,65 @@
-# README
+# Carpark Locator (Wego)
+---------------
+![onemap](https://docs.onemap.sg/images/logo.png)*
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Setup Instructions
+---
+## Compatibility Compliance
 
-Things you may want to cover:
+ ###### Ruby version (2.5.3) : `ruby --version`
+ ###### Bundler version (2.0.1) : `Bundler --version`
+ ###### Mysql-server (8.X.X) : `mysql --version`
+ &nbsp;
+> Gemlock wil prevent a bundle install if the Bundler version is older
+---
+# Mysql
+###### Set the following Environment variables by entering these commands:
+`export "MYSQL_USER="{user}"`
+`export "MYSQL_PASS="{password}"`
+##### Console into MySQL and change, By entering the following:
+`mysql -u root -p`
+When prompted for password hit Return
+ When in the MySQL console enter the following.
+`GRANT ALL PRIVILEGES ON *.* TO '{user}'@'localhost' IDENTIFIED BY {password}` 
+&nbsp;
+# Rails Application
+---
+###### Execute the following:
+`bundle install`
+`rake db:setup`
+`rake total_lots`
+`rails server`
+The server should be listening to port `3000` on the `localhost`
+ &nbsp;
+### Assigned Tasks Completed:
+---
+### Rake Tasks:
+`rake convert_and_store_csv` :
+Extracts the Addresses from the csv file provided and populates the Database.
+This code has been duplicated into seeds.rb file. 
+`rake total_lots`:
+Pulls the Carparks from the OneMapAPi and updates the "Known" addresses in the database. It pushes all other Carparks into an instance variable
 
-* Ruby version
+### Rspec:
+`rspec`: 
+Runs simple `rspec` tests for validation of the model and Controller have been included.
+---
+# Major Issues Encountered
+>
+>Bundler 2 locking issue:
+While attempting to Containerise. Travis flagged it as issue, &nbsp;
+ should have taken this into consideration earlier into the project.
+>
+>MacOSX MySQL Dependencies:
+> OSX seemed to have changed the libs for OpenSSL initial Setup
 
-* System dependencies
+## Takeaways
+> Test the Application in the 'Desrired Environment' earlier
 
-* Configuration
+### Todos
+ - Dockerisation of the Rails App.
+ - Figure a workaround the Bundler 2 issue 
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+##### License:
+MIT
