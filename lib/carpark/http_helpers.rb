@@ -14,8 +14,8 @@ def connect_to_database
         puts "Establishing connection to database"
         ActiveRecord::Base.establish_connection(
             :adapter => "mysql2",
-            :username => "root",
-            :password => "",
+            :username => ENV['MYSQL_USER'],
+            :password => ENV['MYSQL_PASS'],
             :database => "carpark_dev")
          puts "Connection Established"
     else
