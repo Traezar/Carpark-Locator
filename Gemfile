@@ -18,14 +18,13 @@ gem 'puma', '~> 3.11'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-
-# Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.4.2', require: false
-gem 'travis'
 gem 'faraday', '~> 0.9.2'
 gem 'haversine'
 gem 'will_paginate'
 gem "svy21", "~> 1.0.1"
+# Reduces boot times through caching; required in config/boot.rb
+gem 'bootsnap', '>= 1.4.2', require: false
+
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 

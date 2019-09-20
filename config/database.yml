@@ -12,8 +12,8 @@ default: &default
   database: carpark_dev
   pool: 5
   host: localhost
-  username: <%= ENV['MYSQL_USER'] %>
-  password: <%= ENV['MYSQL_PASS'] %>
+  username: root
+  password:
 
 development:
   <<: *default
@@ -25,3 +25,12 @@ development:
 test:
   <<: *default
   database: carpark_test
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: carpark_prod
+  pool: 5
+  username: root
+  password:
