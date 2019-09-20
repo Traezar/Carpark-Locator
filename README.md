@@ -3,7 +3,7 @@
 ![onemap](https://docs.onemap.sg/images/logo.png)*
 
 # Setup Instructions
----
+
 ## Compatibility Compliance
 
  ###### Ruby version (2.5.3) : `ruby --version`
@@ -23,27 +23,28 @@ When prompted for password hit Return
 `GRANT ALL PRIVILEGES ON *.* TO '{user}'@'localhost' IDENTIFIED BY {password}` 
 &nbsp;
 # Rails Application
----
+
 ###### Execute the following:
-`bundle install`
-`rake db:setup`
-`rake total_lots`
-`rails server`
+ ```
+ bundle install
+ rake db:setup
+ rake total_lots
+ rails server
+ ```
 The server should be listening to port `3000` on the `localhost`
  &nbsp;
 ### Assigned Tasks Completed:
----
 ### Rake Tasks:
 `rake convert_and_store_csv` :
 Extracts the Addresses from the csv file provided and populates the Database.
 This code has been duplicated into seeds.rb file. 
+
 `rake total_lots`:
 Pulls the Carparks from the OneMapAPi and updates the "Known" addresses in the database. It pushes all other Carparks into an instance variable
 
-### Rspec:
-`rspec`: 
-Runs simple `rspec` tests for validation of the model and Controller have been included.
----
+### Rspec
+`rspec` runs tests for the validation of the Model and Controller have been included.
+
 # Major Issues Encountered
 >
 >Bundler 2 locking issue:
