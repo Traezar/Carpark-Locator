@@ -4,12 +4,11 @@
 
 # Setup Instructions
 
-## Compatibility Compliance
+Compatibility
 
- ###### Ruby version (2.5.3) : `ruby --version`
- ###### Bundler version (2.0.1) : `Bundler --version`
- ###### Mysql-server (8.X.X) : `mysql --version`
- &nbsp;
+##### Ruby version (2.5.3) : `ruby --version`
+##### Bundler version (2.0.1) : `Bundler --version`.
+##### Mysql-server (8.X.X) : `mysql --version`.
 > Gemlock wil prevent a bundle install if the Bundler version is older
 ---
 # Mysql
@@ -17,14 +16,16 @@
 `export "MYSQL_USER="{user}"`
 `export "MYSQL_PASS="{password}"`
 ##### Console into MySQL and change, By entering the following:
-`mysql -u root -p`
+`
+mysql -u root -p
+`
 When prompted for password hit Return
  When in the MySQL console enter the following.
 `GRANT ALL PRIVILEGES ON *.* TO '{user}'@'localhost' IDENTIFIED BY {password}` 
 &nbsp;
 # Rails Application
 
-###### Execute the following:
+### Execute the following:
  ```
  bundle install
  rake db:setup
@@ -45,7 +46,7 @@ Pulls the Carparks from the OneMapAPi and updates the "Known" addresses in the d
 ### Rspec
 `rspec` runs tests for the validation of the Model and Controller have been included.
 
-# Major Issues Encountered
+## Major Issues Encountered
 >
 >Bundler 2 locking issue:
 While attempting to Containerise. Travis flagged it as issue, &nbsp;
@@ -55,7 +56,7 @@ While attempting to Containerise. Travis flagged it as issue, &nbsp;
 > OSX seemed to have changed the libs for OpenSSL initial Setup
 
 ## Takeaways
-> Test the Application in the 'Desrired Environment' earlier
+> Test the Application in the 'Desired Environment' earlier
 
 ### Todos
  - Dockerisation of the Rails App.
